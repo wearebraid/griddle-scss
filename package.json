@@ -1,0 +1,28 @@
+{
+  "name": "@braid/griddle-scss",
+  "version": "0.0.1",
+  "description": "A Sass grid system with a helpful visual overlay",
+  "main": " ",
+  "scripts": {
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wearebraid/griddle-scss.git"
+  },
+  "keywords": [
+    "css",
+    "scss",
+    "grid",
+    "grid",
+    "system",
+    "front-end",
+    "overlay"
+  ],
+  "author": "Braid LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wearebraid/griddle-scss/issues"
+  },
+  "homepage": "https://github.com/wearebraid/griddle-scss#readme"
+}
