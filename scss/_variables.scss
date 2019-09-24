@@ -10,10 +10,10 @@ $g-breakpoints: (
   'xxl': 1600px
 ) !default;
 
-$g-max-body-width: 1312px !default;
-$g-max-column-width: 64px !default;
+$g-max-body-width: 1216px !default;
+$g-max-column-width: 72px !default;
 $g-max-gutter-width: 32px !default;
-$g-column-count: 14 !default;
+$g-column-count: 12 !default;
 
 // the calculations below are all based on the values above. You should not
 // need to override any variables below this point.
