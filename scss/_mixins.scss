@@ -81,13 +81,17 @@
 // Function to create a percentage width spanning n columns.
 // -----------------------------------------------------------------------------
 @function g-span($columns, $extra_gutters: 0, $context: 0) {
-  $gutters: $extra_gutters + ($columns - 1);
+  $gutters: 0;
+
+  @if $columns == 0 {
+    $gutters: $extra_gutters;
+  } @else {
+    $gutters: $extra_gutters + ($columns - 1);
+  }
 
   @if $context != 0{
     @return ((($columns * $g-column) + ($gutters * $g-gutter)) / $context) * 100%;
-  }
-
-  @else {
+  } @else {
     @return (($columns * $g-column) + ($gutters * $g-gutter));
   }
 }
@@ -95,13 +99,17 @@
 // Creates a decimal between 0-1 that defines a span of columns
 // -----------------------------------------------------------------------------
 @function g-span-decimal($columns, $extra_gutters: 0, $context: 0) {
-  $gutters: $extra_gutters + ($columns - 1);
+  $gutters: 0;
+
+  @if $columns == 0 {
+    $gutters: $extra_gutters;
+  } @else {
+    $gutters: $extra_gutters + ($columns - 1);
+  }
 
   @if $context != 0{
     @return ((($columns * $g-column-decimal) + ($gutters * $g-gutter-decimal)) / $context);
-  }
-
-  @else {
+  } @else {
     @return (($columns * $g-column-decimal) + ($gutters * $g-gutter-decimal));
   }
 }
