@@ -4,7 +4,7 @@
 $g-max-column-width: 72px !default;
 $g-max-gutter-width: 32px !default;
 $g-column-count: 12 !default;
-$g-max-body-width: ($g-column-count * $g-max-column-width) + (($g-column-count - 1) * $g-max-gutter-width);
+$g-max-body-width: ($g-column-count * $g-max-column-width) + (($g-column-count - 1) * $g-max-gutter-width) !default;
 
 $g-breakpoints: (
   'base': (
