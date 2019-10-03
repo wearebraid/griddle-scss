@@ -33,6 +33,10 @@ $g-breakpoints: (
   'xxl': (
     'width': 1600px,
     'inset': auto
+  ),
+  'max-body': (
+    'width': $g-max-body-width + ($g-max-column-width * 2),
+    'inset': auto
   )
 ) !default;
 
