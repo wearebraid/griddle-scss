@@ -1,7 +1,7 @@
 // a default grid template for showing grid alignment as an overlay.
 // -----------------------------------------------------------------------------
 .griddle-container {
-  @include g-overlay();
+  @include overlay();
 }
 
 .griddle-column {
