@@ -26,7 +26,7 @@
       margin-right: map-deep-get($g-breakpoints, #{$bp}, 'inset');
       max-width: $g-max-body-width;
     } @else {
-      @media (min-width: gbp(#{$bp})) {
+      @media (min-width: bp(#{$bp})) {
         margin-left: map-deep-get($g-breakpoints, #{$bp}, 'inset');
         margin-right: map-deep-get($g-breakpoints, #{$bp}, 'inset');
       }
@@ -51,7 +51,7 @@
       right: map-deep-get($g-breakpoints, #{$bp}, 'inset');
       left: map-deep-get($g-breakpoints, #{$bp}, 'inset');
     } @else {
-      @media (min-width: gbp(#{$bp})) {
+      @media (min-width: bp(#{$bp})) {
         @if map-deep-get($g-breakpoints, #{$bp}, 'inset') == auto {
           left: 50%;
           right: auto;
