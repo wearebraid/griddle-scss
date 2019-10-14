@@ -1,6 +1,6 @@
 {
   "name": "@braid/griddle-scss",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A Sass grid system with a helpful visual overlay",
   "main": " ",
   "scripts": {

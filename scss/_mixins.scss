@@ -17,6 +17,50 @@
   @return null;
 };
 
+// creates a media query above a given breakpoint
+// -----------------------------------------------------------------------------
+@mixin above($min) {
+  @if map-has-key($g-breakpoints, #{$min}) {
+    @media (min-width: map-deep-get($g-breakpoints, #{$min}, 'width')) {
+      @content;
+    }
+  }
+  @else {
+    @warn "The breakpoint key '#{$min}' is not in the map ’$g-breakpoints’";
+  }
+};
+
+// creates a media query below a given breakpoint
+// -----------------------------------------------------------------------------
+@mixin below($max) {
+  @if map-has-key($g-breakpoints, #{$max}) {
+    @media (max-width: map-deep-get($g-breakpoints, #{$max}, 'width') - 1) {
+      @content;
+    }
+  }
+  @else {
+    @warn "The breakpoint key '#{$max}' is not in the map ’$g-breakpoints’";
+  }
+};
+
+// creates a media query between two breakpoints
+// -----------------------------------------------------------------------------
+@mixin between($min, $max) {
+  @if map-has-key($g-breakpoints, #{$min}) {
+     @if map-has-key($g-breakpoints, #{$max}) {
+       @media (min-width: map-deep-get($g-breakpoints, #{$min}, 'width')) and (max-width: map-deep-get($g-breakpoints, #{$max}, 'width') - 1) {
+         @content;
+       }
+     }
+     @else {
+      @warn "The breakpoint key '#{$max}' is not in the map ’$g-breakpoints’";
+     }
+  }
+  @else {
+    @warn "The breakpoint key '#{$min}' is not in the map ’$g-breakpoints’";
+  }
+};
+
 // Creates styles for a root element contained space
 // -----------------------------------------------------------------------------
 @mixin container () {
