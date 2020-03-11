@@ -8,6 +8,7 @@ $g-max-body-width: ($g-column-count * $g-max-column-width) + (($g-column-count -
 
 $g-breakpoints: (
   'base': (
+    'width': 0px,
     'inset': 1em
   ),
   'xs': (

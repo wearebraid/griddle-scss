@@ -146,3 +146,41 @@
     @return (($columns * $g-column-decimal) + ($gutters * $g-gutter-decimal));
   }
 }
+
+// adds bleeds up to a max $g-bleed-max-width if defined.
+// assumes that your element is already positioned on the edge of the grid
+// within a container context
+// -----------------------------------------------------------------------------
+@mixin bleed(
+  $direction: 'left',
+  $start-at: 'base',
+  $unset-child: true
+) {
+  @each $bp, $bp-data in $g-breakpoints {
+    $current-bp-width: map-deep-get($g-breakpoints, #{$bp}, 'width');
+    $current-bp-inset: map-deep-get($g-breakpoints, #{$bp}, 'inset');
+    $target-bp-width: map-deep-get($g-breakpoints, #{$start-at}, 'width');
+
+    @if $bp == $start-at {
+      @media (min-width: bp(#{$bp})) {
+        box-sizing: content-box;
+      }
+    }
+
+    @if $current-bp-width >= $target-bp-width {
+      @media (min-width: bp(#{$bp})) {
+        padding-right: map-deep-get($g-breakpoints, #{$bp}, 'inset');
+        @if $direction == 'left'{
+          margin-left: - map-deep-get($g-breakpoints, #{$bp}, 'inset');
+        }
+        @if $unset-child {
+          @if $current-bp-inset != 'auto' {
+            & > *:first-child {
+              width: calc(100% + #{map-deep-get($g-breakpoints, #{$bp}, 'inset')});
+            }
+          }
+        }
+      }
+    }
+  }
+}
