@@ -168,13 +168,18 @@
     }
 
     @if $current-bp-width >= $target-bp-width {
-      @media (min-width: bp(#{$bp})) {
-        padding-right: map-deep-get($g-breakpoints, #{$bp}, 'inset');
-        @if $direction == 'left'{
-          margin-left: - map-deep-get($g-breakpoints, #{$bp}, 'inset');
-        }
-        @if $unset-child {
-          @if $current-bp-inset != 'auto' {
+      @if $current-bp-inset != 'auto' {
+        @media (min-width: bp(#{$bp})) {
+          padding-right: map-deep-get($g-breakpoints, #{$bp}, 'inset');
+
+          @if $direction == 'left'{
+            margin-left: - map-deep-get($g-breakpoints, #{$bp}, 'inset');
+          }
+          @if $direction == 'right'{
+            margin-right: - map-deep-get($g-breakpoints, #{$bp}, 'inset');
+          }
+
+          @if $unset-child {
             & > *:first-child {
               width: calc(100% + #{map-deep-get($g-breakpoints, #{$bp}, 'inset')});
             }
